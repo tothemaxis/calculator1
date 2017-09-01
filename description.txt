@@ -1,2 +1,0 @@
-two versions (forms) of calculator.
-Normal calculator and scientific calculator.
