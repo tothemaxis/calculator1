@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_expo = new System.Windows.Forms.Button();
             this.btn_10totheX = new System.Windows.Forms.Button();
             this.btn_Xtothe3 = new System.Windows.Forms.Button();
@@ -63,11 +64,14 @@
             this.History_richbox = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.memo_richtext = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.right_pannel.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -103,12 +107,22 @@
             this.groupBox1.Controls.Add(this.btn_0);
             this.groupBox1.Controls.Add(this.btn_dot);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 468);
+            this.groupBox1.Size = new System.Drawing.Size(402, 452);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Calculator";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(35, 170);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 22);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "n!";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_expo
             // 
@@ -485,15 +499,30 @@
             this.memo_richtext.TabIndex = 2;
             this.memo_richtext.Text = "";
             // 
-            // button1
+            // menuStrip1
             // 
-            this.button1.Location = new System.Drawing.Point(35, 170);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 22);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "n!";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.homeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(650, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.convertBinaryToolStripMenuItem});
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.homeToolStripMenuItem.Text = "Home";
+            // 
+            // convertBinaryToolStripMenuItem
+            // 
+            this.convertBinaryToolStripMenuItem.Name = "convertBinaryToolStripMenuItem";
+            this.convertBinaryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.convertBinaryToolStripMenuItem.Text = "Convert Binary";
+            this.convertBinaryToolStripMenuItem.Click += new System.EventHandler(this.convertBinaryToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -502,6 +531,8 @@
             this.ClientSize = new System.Drawing.Size(650, 492);
             this.Controls.Add(this.right_pannel);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
@@ -509,7 +540,10 @@
             this.right_pannel.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -551,6 +585,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RichTextBox memo_richtext;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convertBinaryToolStripMenuItem;
     }
 }
 

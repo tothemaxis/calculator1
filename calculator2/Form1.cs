@@ -419,5 +419,11 @@ namespace calculator2
             textBox1.Text += "invalid input";
             History_richbox.Text += "invalid input";
         }
+
+        private void convertBinaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            binaryConvert form2 = new binaryConvert();
+            form2.Show();
+        }
     }
 }

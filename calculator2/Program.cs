@@ -16,7 +16,7 @@ namespace calculator2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new binaryConvert());
+            Application.Run(new Form1());
         }
     }
 }
