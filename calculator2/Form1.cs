@@ -23,100 +23,37 @@ namespace calculator2
         double[] memoArray = new double[2];
         int operation;
         double ans;
+        double percent;
+        double currency = 3.03;
 
 
         public Form1()
         {
             InitializeComponent();
         }
-
+        private void numClick(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Equals("0"))
+            {
+                textBox1.Clear();
+            }
+            Button num = sender as Button;
+            textBox1.Text += num.Text;
+        }
         private void button10_Click(object sender, EventArgs e)
         {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_2.Text;
-        }
-
-        private void btn_1_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_1.Text;
         }
 
         private void btn_0_Click(object sender, EventArgs e)
         {
-            if (textBox1.TextLength > 0 && ans !=0)
+            if (textBox1.TextLength > 0 && !textBox1.Text.EndsWith("0"))
             {
                 textBox1.Text += btn_0.Text;
             }
-        }
-
-        private void btn_3_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
+            else if (textBox1.TextLength == 0)
             {
-                textBox1.Clear();
+                textBox1.Text = btn_0.Text;
             }
-            textBox1.Text += btn_3.Text;
-        }
-
-        private void btn_4_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_4.Text;
-        }
-
-        private void btn_5_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_5.Text;
-        }
-
-        private void btn_6_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_6.Text;
-        }
-
-        private void btn_7_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_7.Text;
-        }
-
-        private void btn_8_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_8.Text;
-        }
-
-        private void btn_9_Click(object sender, EventArgs e)
-        {
-            if (ans == 0)
-            {
-                textBox1.Clear();
-            }
-            textBox1.Text += btn_9.Text;
         }
 
         private void btn_dot_Click(object sender, EventArgs e)
@@ -226,7 +163,6 @@ namespace calculator2
                     mulArray[0] = Convert.ToDouble(textBox1.Text);
                     ans = firstArray[0] * mulArray[0];
                     textBox1.Clear();
-                    textBox1.Text = ans.ToString();
                     History_richbox.Text += firstArray[0] + " x " + mulArray[0] + " = " + ans + "\n";
                     //if press equal again
                     firstArray[0] = ans;
@@ -424,6 +360,38 @@ namespace calculator2
         {
             binaryConvert form2 = new binaryConvert();
             form2.Show();
+        }
+
+        private void btn_percent_Click(object sender, EventArgs e)
+        {
+            if (firstArray[0] != 0 && textBox1.TextLength > 0)
+            {
+                percent = Convert.ToDouble(textBox1.Text);
+                textBox1.Text = ((firstArray[0] / 100) * percent).ToString();
+            }
+            else
+                textBox1.Text = "0";
+        }
+
+        private void convert_btn_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex >-1 && textBox1.TextLength>0)
+            {
+                double current = Convert.ToDouble(textBox1.Text);
+                String type = listBox1.SelectedItem.ToString();
+                if (type == "USD->THB")
+                {
+                    double newCurrent = (current / currency);
+                    textBox1.Text = newCurrent.ToString();
+                    History_richbox.Text += (current + "$ = " + newCurrent + "B\n");
+                }
+                else if (type == "THB->USD")
+                {
+                    double newCurrent = (current * currency);
+                    textBox1.Text = newCurrent.ToString();
+                    History_richbox.Text += (current + "B = " + newCurrent + "$\n");
+                }
+            }
         }
     }
 }

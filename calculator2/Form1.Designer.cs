@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_percent = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_expo = new System.Windows.Forms.Button();
             this.btn_10totheX = new System.Windows.Forms.Button();
@@ -67,6 +68,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.convertBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.convert_btn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.right_pannel.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -76,6 +79,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.convert_btn);
+            this.groupBox1.Controls.Add(this.listBox1);
+            this.groupBox1.Controls.Add(this.btn_percent);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btn_expo);
             this.groupBox1.Controls.Add(this.btn_10totheX);
@@ -109,16 +115,26 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(402, 452);
+            this.groupBox1.Size = new System.Drawing.Size(478, 452);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Calculator";
             // 
+            // btn_percent
+            // 
+            this.btn_percent.Location = new System.Drawing.Point(397, 83);
+            this.btn_percent.Name = "btn_percent";
+            this.btn_percent.Size = new System.Drawing.Size(75, 23);
+            this.btn_percent.TabIndex = 31;
+            this.btn_percent.Text = "%";
+            this.btn_percent.UseVisualStyleBackColor = true;
+            this.btn_percent.Click += new System.EventHandler(this.btn_percent_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(35, 170);
+            this.button1.Location = new System.Drawing.Point(34, 168);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 22);
+            this.button1.Size = new System.Drawing.Size(70, 23);
             this.button1.TabIndex = 30;
             this.button1.Text = "n!";
             this.button1.UseVisualStyleBackColor = true;
@@ -276,7 +292,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox1.Size = new System.Drawing.Size(351, 22);
+            this.textBox1.Size = new System.Drawing.Size(438, 22);
             this.textBox1.TabIndex = 16;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -289,7 +305,7 @@
             this.btn_9.TabIndex = 15;
             this.btn_9.Text = "9";
             this.btn_9.UseVisualStyleBackColor = true;
-            this.btn_9.Click += new System.EventHandler(this.btn_9_Click);
+            this.btn_9.Click += new System.EventHandler(this.numClick);
             // 
             // del_btn
             // 
@@ -322,7 +338,7 @@
             this.btn_3.TabIndex = 12;
             this.btn_3.Text = "3";
             this.btn_3.UseVisualStyleBackColor = true;
-            this.btn_3.Click += new System.EventHandler(this.btn_3_Click);
+            this.btn_3.Click += new System.EventHandler(this.numClick);
             // 
             // btn_8
             // 
@@ -333,7 +349,7 @@
             this.btn_8.TabIndex = 11;
             this.btn_8.Text = "8";
             this.btn_8.UseVisualStyleBackColor = true;
-            this.btn_8.Click += new System.EventHandler(this.btn_8_Click);
+            this.btn_8.Click += new System.EventHandler(this.numClick);
             // 
             // btn_5
             // 
@@ -344,7 +360,7 @@
             this.btn_5.TabIndex = 10;
             this.btn_5.Text = "5";
             this.btn_5.UseVisualStyleBackColor = true;
-            this.btn_5.Click += new System.EventHandler(this.btn_5_Click);
+            this.btn_5.Click += new System.EventHandler(this.numClick);
             // 
             // btn_2
             // 
@@ -355,7 +371,7 @@
             this.btn_2.TabIndex = 9;
             this.btn_2.Text = "2";
             this.btn_2.UseVisualStyleBackColor = true;
-            this.btn_2.Click += new System.EventHandler(this.button10_Click);
+            this.btn_2.Click += new System.EventHandler(this.numClick);
             // 
             // btn_1
             // 
@@ -366,7 +382,7 @@
             this.btn_1.TabIndex = 8;
             this.btn_1.Text = "1";
             this.btn_1.UseVisualStyleBackColor = true;
-            this.btn_1.Click += new System.EventHandler(this.btn_1_Click);
+            this.btn_1.Click += new System.EventHandler(this.numClick);
             // 
             // btn_6
             // 
@@ -377,7 +393,7 @@
             this.btn_6.TabIndex = 7;
             this.btn_6.Text = "6";
             this.btn_6.UseVisualStyleBackColor = true;
-            this.btn_6.Click += new System.EventHandler(this.btn_6_Click);
+            this.btn_6.Click += new System.EventHandler(this.numClick);
             // 
             // btn_7
             // 
@@ -388,7 +404,7 @@
             this.btn_7.TabIndex = 6;
             this.btn_7.Text = "7";
             this.btn_7.UseVisualStyleBackColor = true;
-            this.btn_7.Click += new System.EventHandler(this.btn_7_Click);
+            this.btn_7.Click += new System.EventHandler(this.numClick);
             // 
             // clearE_btn
             // 
@@ -410,7 +426,7 @@
             this.btn_4.TabIndex = 3;
             this.btn_4.Text = "4";
             this.btn_4.UseVisualStyleBackColor = true;
-            this.btn_4.Click += new System.EventHandler(this.btn_4_Click);
+            this.btn_4.Click += new System.EventHandler(this.numClick);
             // 
             // clear_btn
             // 
@@ -432,7 +448,7 @@
             this.btn_0.TabIndex = 1;
             this.btn_0.Text = "0";
             this.btn_0.UseVisualStyleBackColor = true;
-            this.btn_0.Click += new System.EventHandler(this.btn_0_Click);
+            this.btn_0.Click += new System.EventHandler(this.numClick);
             // 
             // btn_dot
             // 
@@ -449,10 +465,10 @@
             // 
             this.right_pannel.Controls.Add(this.tabPage1);
             this.right_pannel.Controls.Add(this.tabPage2);
-            this.right_pannel.Location = new System.Drawing.Point(438, 28);
+            this.right_pannel.Location = new System.Drawing.Point(506, 28);
             this.right_pannel.Name = "right_pannel";
             this.right_pannel.SelectedIndex = 0;
-            this.right_pannel.Size = new System.Drawing.Size(200, 430);
+            this.right_pannel.Size = new System.Drawing.Size(132, 430);
             this.right_pannel.TabIndex = 1;
             // 
             // tabPage1
@@ -461,7 +477,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(192, 404);
+            this.tabPage1.Size = new System.Drawing.Size(124, 404);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "History";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -473,7 +489,7 @@
             this.History_richbox.Location = new System.Drawing.Point(6, 6);
             this.History_richbox.Name = "History_richbox";
             this.History_richbox.ReadOnly = true;
-            this.History_richbox.Size = new System.Drawing.Size(180, 392);
+            this.History_richbox.Size = new System.Drawing.Size(112, 392);
             this.History_richbox.TabIndex = 0;
             this.History_richbox.Text = "";
             this.History_richbox.TextChanged += new System.EventHandler(this.History_richbox_TextChanged);
@@ -484,7 +500,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 404);
+            this.tabPage2.Size = new System.Drawing.Size(124, 404);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Memory";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -523,6 +539,28 @@
             this.convertBinaryToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.convertBinaryToolStripMenuItem.Text = "Convert Binary";
             this.convertBinaryToolStripMenuItem.Click += new System.EventHandler(this.convertBinaryToolStripMenuItem_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Items.AddRange(new object[] {
+            "THB->USD",
+            "USD->THB"});
+            this.listBox1.Location = new System.Drawing.Point(386, 152);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(91, 36);
+            this.listBox1.TabIndex = 32;
+            // 
+            // convert_btn
+            // 
+            this.convert_btn.Location = new System.Drawing.Point(397, 194);
+            this.convert_btn.Name = "convert_btn";
+            this.convert_btn.Size = new System.Drawing.Size(75, 23);
+            this.convert_btn.TabIndex = 33;
+            this.convert_btn.Text = "Convert";
+            this.convert_btn.UseVisualStyleBackColor = true;
+            this.convert_btn.Click += new System.EventHandler(this.convert_btn_Click);
             // 
             // Form1
             // 
@@ -588,6 +626,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem convertBinaryToolStripMenuItem;
+        private System.Windows.Forms.Button btn_percent;
+        private System.Windows.Forms.Button convert_btn;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
